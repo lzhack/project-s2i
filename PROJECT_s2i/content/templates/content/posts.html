@@ -1,0 +1,48 @@
+{% extends 'content/base.html' %}
+
+{% block main %}
+<main>
+
+{% block central_content %}
+<!-- INSERIRE FORM -->
+<div class="container-fluid p-5">
+  <h3><strong>Create your post!</strong></h3>
+  <br>
+
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+
+    <input type="submit" value="Create">
+    
+    </form>
+    
+
+</div>
+<hr>
+<br>
+<div class="container marketing">
+    <h3 class="text-center"><strong>Posts</strong></h3>
+    <br>
+<div class="row">
+    {% for post in posts %}
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.content|truncatewords:10}}</p>
+          <a href="{% url 'content:post_detail' post.id %}" class="btn btn-secondary">View details &raquo;</a>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+  {% block footer %}
+  {% include 'content/partials/_footer.html' %}
+  {% endblock %}
+
+</main>
+{% endblock %}

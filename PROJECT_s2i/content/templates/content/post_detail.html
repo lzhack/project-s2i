@@ -1,0 +1,46 @@
+{% extends 'content/base.html' %}
+{% load static %}
+
+{% block main %}
+<main>
+
+{% block central_content %}
+<p>
+    {% for post in posts %}
+    <div class="container marketing">
+        <div>
+          <img style="float:left; margin: 10px" class="bd-placeholder-img rounded-circle" src="{% static 'content/images/avatar.svg' %}" alt="My image" width="80" height="80">
+          <p><i><h2>{{ post.title }}</h2></i></p>
+        </div>
+        
+        <p>
+            <i>{{ post.content}}</i>
+        </p>
+        <hr>
+        <ul>
+            <h3><strong>{{ post.user.username }}</strong></h3>
+            <!-- <li><strong>Email:</strong> {{ post.user.email }}</li>
+            {% if post.user.profile.birthday %}
+                <li> <strong>Birthday:</strong> {{ post.user.profile.birthday }}</li>
+            {% endif %}
+            <li> <strong>Location:</strong> {{ post.user.profile.location|capfirst }}</li> -->
+            {% if post.hash == None and post.txId == None %}
+              <li>NOT ON CHAIN</li>
+            {% else %}
+              <li> <strong>Post hash:</strong> {{ post.hash }}</li>
+              <li> <strong>Transaction Id:</strong> {{ post.txId }}</li>
+            {% endif %}
+        </ul>
+            
+            
+    </div>
+    {% endfor %}
+  </p>
+{% endblock %}
+
+  {% block footer %}
+  {% include 'content/partials/_footer.html' %}
+  {% endblock %}
+
+</main>
+{% endblock %}

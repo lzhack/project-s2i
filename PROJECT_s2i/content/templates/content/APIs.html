@@ -1,0 +1,25 @@
+{% extends 'content/base.html' %}
+
+{% block main %}
+<main>
+
+{% block central_content %}
+<div class="container-fluid p-5">
+    <h3><i>APIs Endpoints</i></h3>
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Posts in 1h:</strong></label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="http://127.0.0.1:8000/api/1h/">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-2 col-form-label"><strong>String search:</strong></label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="http://127.0.0.1:8000/api/STRING/">
+        </div>
+      </div>
+  </div>
+{% endblock %}
+
+</main>
+{% endblock %}

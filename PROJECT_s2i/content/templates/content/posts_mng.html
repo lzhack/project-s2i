@@ -1,0 +1,48 @@
+{% extends 'content/base.html' %}
+
+{% block main %}
+<main>
+
+{% block central_content %}
+
+<br>
+<div class="container-fluid text-center p-5">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        
+        <!-- <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+        </li> -->
+        
+        {% for user in users %}
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="{{user.username}}-tab" data-bs-toggle="tab" data-bs-target="#{{user.username}}" type="button" role="tab" aria-controls="{{user.username}}" aria-selected="false">{{user.username}}</button>
+        </li>
+        {% endfor %}
+      
+    </ul>
+
+      <div class="tab-content" id="myTabContent">
+        
+        <!-- <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div> -->
+        
+        {% for user in users %}
+            <div class="tab-pane fade" id="{{user.username}}" role="tabpanel" aria-labelledby="{{user.username}}-tab">
+                {% for post in posts %}
+                    {% if post.user.username == user.username %}
+                        <ul>
+                            <li><strong>{{ post.title|capfirst }}</strong><br/>
+                                <a href="{% url 'content:post_detail' post.id %}" class="text-muted">View details &raquo;</a>
+                            </li>
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+      
+    </div>
+</div>
+{% endblock %}
+
+
+</main>
+{% endblock %}

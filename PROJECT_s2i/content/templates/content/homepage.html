@@ -1,0 +1,28 @@
+{% extends 'content/base.html' %}
+
+{% block main %}
+<main>
+
+  {% block carousel %}
+  {% include 'content/partials/_carousel.html' %}
+  {% endblock %} 
+  
+  {% if user.is_authenticated %}
+
+    {% block central_content %}
+    {% include 'content/partials/_central_content.html' %}
+    {% endblock %}
+
+  
+
+    {% block footer %}
+    {% include 'content/partials/_footer.html' %}
+    {% endblock %}
+
+  {% else %}
+    <h3 class="text-center"><strong>To show the most recent posts you need to login!</strong></h3>   
+
+  {% endif %}
+
+</main>
+{% endblock %}

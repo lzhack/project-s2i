@@ -1,0 +1,22 @@
+{% extends 'content/base.html' %}
+
+{% block main %}
+<main>
+
+    <div class="container-fluid p-5 text-center">
+        <!-- Aggiungere Icona Profilo -->
+        <h5><strong>{{ user.username }}</strong></h5>
+        <br />
+        <ul>
+            <li>Email: <strong>{{ user.email }}</strong></li>
+            <li>Name: <strong>{{ user.first_name }}</strong></li>
+            <li>Surname: <strong>{{ user.last_name }}</strong></li>
+            <li>Birthday: <strong>{{ user.profile.birthday }}</strong></li>
+            <li>Location: <strong>{{ user.profile.location }}</strong></li>
+        </ul>
+        <br />
+        <a style="margin-right: 15px;" href="{% url 'accounts:logout' %}">Logout</a> <a href="{% url 'accounts:password_change' %}">Change password</a>
+    </div>
+
+</main>
+{% endblock %}

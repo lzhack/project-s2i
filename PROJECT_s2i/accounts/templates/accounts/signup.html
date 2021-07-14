@@ -1,0 +1,42 @@
+{% extends 'content/base.html' %}
+
+{% block main %}
+<main>
+
+    <div class="container-fluid p-5">
+
+        <h2>Sign up</h2>
+        <br>
+
+    {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <p>
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+                <small style="color: grey;">{{ field.help_text }}</small>
+            {% endif %}
+        <p>
+            {% for error in field.errors %}
+                <small style="color: red;">{{ error }}</small>
+            {% endfor %}
+        </p>
+        </p>
+        {% endfor %}
+        
+        <input type="submit" value="Sign up">
+    </form>
+
+   </div>
+
+    {% block footer %}
+    {% include 'content/partials/_footer.html' %}
+    {% endblock %}
+    
+</main>
+{% endblock %}

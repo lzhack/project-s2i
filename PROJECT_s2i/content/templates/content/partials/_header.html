@@ -1,0 +1,78 @@
+<header>
+   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+     <div class="container-fluid">
+       <a class="navbar-brand" href="{% url 'content:info' %}">PostOnChain</a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       
+       {% if user.is_authenticated and user.is_superuser %}
+       
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+         <ul class="navbar-nav me-auto mb-2 mb-md-0">
+           <li class="nav-item">
+             <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+             <a class="nav-link" href="{% url 'content:home' %}">Home</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="{% url 'content:APIs' %}">APIs</a>
+           </li>
+           <li class="nav-item">
+             <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+             <a class="nav-link" href="{% url 'content:posts' %}">Posts</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="{% url 'content:posts_mng' %}">Management</a>
+           </li>
+         </ul>
+           <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+           <a style="margin-right: 5px" class="nav-link text-white" href="{% url 'accounts:profile' %}">{{ user.username }}</a>
+           <a class="btn btn-outline-success" href="{% url 'accounts:logout' %}">Logout</a>
+       </div>
+
+       {% elif user.is_authenticated %}
+
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+            <a class="nav-link" href="{% url 'content:home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'content:APIs' %}">APIs</a>
+          </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+            <a class="nav-link" href="{% url 'content:posts' %}">Posts</a>
+          </li>
+        </ul>
+          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+          <a style="margin-right: 5px" class="nav-link text-white" href="{% url 'accounts:profile' %}">{{ user.username }}</a>
+          <a class="btn btn-outline-success" href="{% url 'accounts:logout' %}">Logout</a>
+      </div>
+
+        
+      {% else %}
+
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+         <ul class="navbar-nav me-auto mb-2 mb-md-0">
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'content:home' %}">Home</a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">APIs</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Posts</a>
+           </li>
+         </ul>
+           <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+           <a style="margin-right: 15px" class="btn btn-outline-success" href="{% url 'accounts:login' %}">Login</a>
+           <a class="btn btn-outline-success" href="{% url 'accounts:signup' %}">Sign up</a>
+       </div>
+
+       {% endif %}
+
+     </div>
+   </nav>
+ </header>

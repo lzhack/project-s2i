@@ -1,0 +1,75 @@
+{% extends 'content/base.html' %}
+{% load static %}
+
+{% block main %}
+<main>
+
+  {% block carousel %}
+  {% include 'content/partials/_carousel.html' %}
+  {% endblock %} 
+  
+
+
+    {% block central_content %}
+    <div class="container-fluid p-5">
+    <h1 class="text-center"><i><strong>How it works?</strong></i></h1>
+        <br>
+        <br>
+        <!-- START THE FEATURETTES -->
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">First step. <span class="text-muted">Create.</span></h2>
+            <p class="lead">If you want to post on chain your content immediately remember to check the box "On Chain". Otherwise save it for a second time, but remember that you will have to communicate us when you want to post it on chain because only we will be able to do it.</p>
+          </div>
+          <div class="col-md-5">
+            <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'content/images/crea_un_post.PNG' %}" alt="My image" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            
+          </div>
+        </div>
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Main part, the magic happens. <span class="text-muted">PostOnChain.</span></h2>
+            <p class="lead">Once created, a "Hash" of the content and an "Id" of the transaction will be assigned to the post, which will allow its content to be on the blockchain.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'content/images/on_chain.PNG' %}" alt="My image" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            
+
+          </div>
+        </div>
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">And lastly. <span class="text-muted">Check.</span></h2>
+            <p class="lead">Your message is in blockchain. If you want to check that everything went well, just log on to "https://ropsten.etherscan.io/", enter your "Transaction Id" and immediately check the presence of the content of your post.</p>
+          </div>
+          <div class="col-md-5">
+            <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'content/images/check_chain.PNG' %}" alt="My image" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            
+
+          </div>
+        </div>
+    
+        <!-- <hr class="featurette-divider"> -->
+    
+        <!-- /END THE FEATURETTES -->
+    </div>
+    {% endblock %}
+
+  
+
+    {% block footer %}
+    {% include 'content/partials/_footer.html' %}
+    {% endblock %}
+
+</main>
+{% endblock %}

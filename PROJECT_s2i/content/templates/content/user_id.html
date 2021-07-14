@@ -1,0 +1,15 @@
+{% extends 'content/base.html' %}
+
+{% block main %}
+<main>
+
+{% block central_content %}
+<br>
+<div class="container-fluid p-5 text-center">
+  <h1>User:<strong> {{ user_by_id.username }}</strong> -----> id: <strong> {{ user_by_id.id }}</strong></h1>
+</div>
+{% endblock %}
+
+
+</main>
+{% endblock %}
